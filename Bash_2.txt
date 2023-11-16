@@ -1,0 +1,156 @@
+1) Go to home directory
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training/test4
+$ cd ~
+
+2) Create folder test 3
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training
+$ mkdir test3
+
+3) Add three files 4, 5 and 6 to the test 3 folder, each of which should contain 4 lines row1, row2, row3, row4
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training/test3
+$ touch test3/file {4,5,6}.txt
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training/test3
+$ echo row1, row2, row3, row4 > 4.txt
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training/test3
+$ echo row1, row2, row3, row4 > 5.txt
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training/test3
+$ echo row1, row2, row3, row4 > 6.txt
+
+4) Find row2 in file 5
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training/test3
+$ grep row2 5.txt
+row1, row2, row3, row4
+
+5) Find the line row in the test3 folder
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training
+$ grep 'row' ./test3 -r
+./test3/4.txt:row1, row2, row3, row4
+./test3/5.txt:row1, row2, row3, row4
+./test3/6.txt:row1, row2, row3, row4
+
+6) Count how many lines with the content row in file 6
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training/test3
+$ grep 'row' 6.txt -c
+1
+
+7) Find file 5 inside test3 folder
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training
+$ find ./test3 -name 5.txt
+./test3/5.txt
+
+8) Using find command, delete file 5
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training
+$ find ./test3 -name 5.txt -delete
+
+9) Using the echo command, add the word test to file 4
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training
+$ echo test >> ./test3/4.txt
+
+10) Replace the word test in file 4 with fail
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training/test3
+$ sed 's/test/fail/g' 4.txt 
+row1, row2, row3, row4
+fail
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training/test3
+$ sed 's/test/fail/g' 4.txt -i
+
+11) Add the word test to file 4 so that the contents are preserved
+
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training
+$ echo test >> ./test3/4.txt
+
+12) View all processes for users, not only in the console, that occur in the system
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training
+$ ps aux
+      PID    PPID    PGID     WINPID   TTY         UID    STIME COMMAND
+     1564       1    1564      12584  cons0     197609 11:54:12 /usr/bin/bash
+     1743    1564    1743      12844  cons0     197609 12:38:56 /usr/bin/ps
+
+13) Kill process 666 in the console
+
+Сергей@DESKTOP-450D7IA MINGW64 ~
+$ kill 666
+
+14) Find out the availability of the artsiomrusau.com resource using ping
+
+Сергей@DESKTOP-450D7IA MINGW64 ~
+$ ping artsiomrusau.com
+
+Сергей@DESKTOP-450D7IA MINGW64 ~
+$ ping artsiomrusau.com
+
+Pinging artsiomrusau.com [185.215.4.92] with 32 bytes of data:
+Request timed out.
+Request timed out.
+Request timed out.
+Request timed out.
+
+Ping statistics for 185.215.4.92:
+    Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),
+
+--------------------------------------------------
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training
+$ ping google.com
+
+Pinging google.com [2a00:1450:4001:802::200e] with 32 bytes of data:
+Reply from 2a00:1450:4001:802::200e: time=22ms 
+Reply from 2a00:1450:4001:802::200e: time=90ms 
+Reply from 2a00:1450:4001:802::200e: time=19ms 
+Reply from 2a00:1450:4001:802::200e: time=26ms 
+
+Ping statistics for 2a00:1450:4001:802::200e:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 19ms, Maximum = 90ms, Average = 39ms
+
+15) Send 5 packages to artsiomrusau.com
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training
+$ ping -n 5 artsiomrusau.com
+
+Pinging artsiomrusau.com [185.215.4.92] with 32 bytes of data:
+Request timed out.
+Request timed out.
+Request timed out.
+Request timed out.
+Request timed out.
+
+Ping statistics for 185.215.4.92:
+    Packets: Sent = 5, Received = 0, Lost = 5 (100% loss),
+
+16) Using GET and curl command, get information about registered pets at https://petstore.swagger.io/
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training
+$ curl -X 'GET' > 'https://petstore.swagger.io/v2/store/inventory' > -H 'accept: application/json'
+{Status:1,sold:12,lovely:1,5000:1,string:553,available4:1,unavailable:1,pending:9,продал:1,available:397,Not Available:1,peric:1,Available:1,for rent:1,avaible:1,dumbass:1}
+
+17) Using POST and curl command, create a new user at https://petstore.swagger.io/
+
+Сергей@DESKTOP-450D7IA MINGW64 ~/Documents/bash_training
+$ curl -X 'POST' https://petstore.swagger.io/v2/user > -H 'accept: application/json' > -H 'Content-Type: application/json' > -d '{
+> id: 0,
+> username: Curt,
+> firstName: Russel,
+> email: usb@dot.com,
+> password: 1234,
+> phone: string,  
+> userStatus: 0
+> }'
+{code:200,type:unknown,message:9223372036854757489}
