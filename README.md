@@ -1,1 +1,3 @@
-# Bash
+# <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Bash_Logo_Colored.svg/1024px-Bash_Logo_Colored.svg.png?20180723054350" title="bash" alt="bash" width="20" height="20"/> Bash   
+This part of the course, I got acquainted with the basic commands for working with files and directories, HTTP requests. 
+Editing files, checking and killing proccesses, pinging websites.
